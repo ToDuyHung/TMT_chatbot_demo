@@ -14,8 +14,17 @@ module.exports = {
     True: 'True',
     False: 'False',
     cs: 'Câu này hỏi về màu sắc và size',
-    c: "Câu này hỏi về màu sắc",
+    c: "Cảm ơn quý khách đã đặt hàng tại shop",
     s: "Câu này hỏi về size",
     n: "Không hỏi về màu sắc và size",
-    rep_hello: "Shop chào bạn ạ"
+    rep_hello: "Shop chào bạn ạ",
+    rep_done: "Shop chào bạn ạ done",
+    rep_inform: "Shop chào bạn ạ inform",
+    rep_request: "Shop chào bạn ạ request",
+    rep_feedback: "Shop chào bạn ạ feedback",
+    rep_connect: "Shop chào bạn ạ connect",
+    rep_order: "Bạn muốn lấy thêm sản phẩm gì không ?",
+    rep_order_color: "Dạ bạn muốn lấy màu gì ạ ?",
+    rep_changing: "Shop chào bạn ạ changing",
+    rep_return: "Shop chào bạn ạ return"
 }

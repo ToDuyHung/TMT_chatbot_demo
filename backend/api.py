@@ -36,6 +36,24 @@ def send_message():
         return jsonify([[],{'type': 'nothing', 'count': 0}])
     if result=="rep_hello":
         return jsonify([[],{'type': 'rep_hello', 'count': 0}])
+    if result=="rep_done":
+        return jsonify([[],{'type': 'rep_done', 'count': 0}])
+    if result=="rep_inform":
+        return jsonify([[],{'type': 'rep_inform', 'count': 0}])
+    if result=="rep_request":
+        return jsonify([[],{'type': 'rep_request', 'count': 0}])
+    if result=="rep_feedback":
+        return jsonify([[],{'type': 'rep_feedback', 'count': 0}])
+    if result=="rep_connect":
+        return jsonify([[],{'type': 'rep_connect', 'count': 0}])
+    if result=="rep_order":
+        return jsonify([[],{'type': 'rep_order', 'count': 0}])
+    if result=="rep_order_color":
+        return jsonify([[],{'type': 'rep_order_color', 'count': 0}])
+    if result=="rep_changing":
+        return jsonify([[],{'type': 'rep_changing', 'count': 0}])
+    if result=="rep_return":
+        return jsonify([[],{'type': 'rep_return', 'count': 0}])
 
 
 

@@ -77,9 +77,20 @@ def preprocess(doc, rm_short=False):
 def predict_message(message):
 
     X_corp = np.array([message])
-    check1=False
-    check2=False
-    check3=False
+
+    #Check color
+    check_color = False
+    tfidfconverter = pickle.load(open('tfidf_color.pickle', 'rb'))
+    clf = pickle.load(open('color_pickle', 'rb'))
+    X_corp_tfidf = tfidfconverter.transform(X_corp).toarray()
+    y_corp_pred = clf.predict(X_corp_tfidf)
+    if int(y_corp_pred[0]) == 1:
+        check_color = True
+
+
+    
+    
+    intent_list = ['hello', 'done', 'inform', 'request', 'feedback', 'connect', 'order', 'changing', 'return']
 
     #Check hello
     # corpus = corpus_from_file(corpus_path = 'Output2.txt')
@@ -88,51 +99,49 @@ def predict_message(message):
     clf = pickle.load(open('hungne', 'rb'))
     X_corp_tfidf = tfidfconverter.transform(X_corp).toarray()
     y_corp_pred = clf.predict(X_corp_tfidf)
-    if int(y_corp_pred[0]) == 0:
-        check3=True
+    intent = int(y_corp_pred[0])
+    if intent >= 0 and intent <= 8:
+        if intent == 6:
+            if check_color == True:
+                return 'rep_' + intent_list[intent] 
+            else:
+                return 'rep_' + intent_list[intent] + '_color'
+        else:
+            return 'rep_' + intent_list[intent] 
     else:
-        check3=False
-    print("check3")
-    print(check3)
+        return 'nothing'
+    
+    
+    
 
-    #Check color
-    tfidfconverter = pickle.load(open('tfidf_color.pickle', 'rb'))
-    clf = pickle.load(open('color_pickle', 'rb'))
-    X_corp_tfidf = tfidfconverter.transform(X_corp).toarray()
-    y_corp_pred = clf.predict(X_corp_tfidf)
-    if int(y_corp_pred[0]) ==1:
-        check1=True
-    else:
-        check1=False
-    # if check1==True:
-    #     return "color"
-    print("check1")
-    print (check1)
 
     #Check size
-    tfidfconverter = pickle.load(open('tfidf_size.pickle', 'rb'))
-    clf = pickle.load(open('size_pickle', 'rb'))
-    X_corp_tfidf = tfidfconverter.transform(X_corp).toarray()
-    y_corp_pred = clf.predict(X_corp_tfidf)
-    if int(y_corp_pred[0]) ==1:
-        check2=True
-    else:
-        check2=False
-    # if check2==True:
-    #     return "size"
-    print("check2")
-    print (check2)
+    # tfidfconverter = pickle.load(open('tfidf_size.pickle', 'rb'))
+    # clf = pickle.load(open('size_pickle', 'rb'))
+    # X_corp_tfidf = tfidfconverter.transform(X_corp).toarray()
+    # y_corp_pred = clf.predict(X_corp_tfidf)
+    # if int(y_corp_pred[0]) ==1:
+    #     check2=True
+    # else:
+    #     check2=False
+    # # if check2==True:
+    # #     return "size"
+    # print("check2")
+    # print (check2)
 
     # if check1==True and check2==True:
     #     return "color_size"
-    if check3==True:
-        return "rep_hello"
-    if check1==True and check2==False:
-        return "color"   
-    if check1==False and check2==True:
-        return "size"
-    if check1==False and check2==False:
-        return "nothing"
+    # if check3==True:
+    #     return "rep_hello"
+    # if check1==True and check2==False:
+    #     return "color"   
+    # if check1==False and check2==True:
+    #     return "size"
+    # if check1==False and check2==False:
+    #     return "nothing"
+
+
+
     # #tfidf_converter
     # tfidfconverter = pickle.load(open('tfidf.pickle', 'rb'))
     # tfidfconverter = pickle.load(open('tfidf.pickle', 'rb'))

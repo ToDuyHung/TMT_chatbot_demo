@@ -419,6 +419,61 @@ module.exports = function (controller) {
             text: resp.rep_hello,
         });
     }
+
+    function rep_done(bot, message, body){
+        bot.reply(message, {
+            text: resp.rep_done,
+        });
+    }
+
+    function rep_inform(bot, message, body){
+        bot.reply(message, {
+            text: resp.rep_inform,
+        });
+    }
+
+    function rep_request(bot, message, body){
+        bot.reply(message, {
+            text: resp.rep_request,
+        });
+    }
+
+    function rep_feedback(bot, message, body){
+        bot.reply(message, {
+            text: resp.rep_feedback,
+        });
+    }
+
+    function rep_connect(bot, message, body){
+        bot.reply(message, {
+            text: resp.rep_connect,
+        });
+    }
+
+    function rep_order(bot, message, body){
+        bot.reply(message, {
+            text: resp.rep_order,
+        });
+    }
+
+    function rep_order_color(bot, message, body){
+        bot.reply(message, {
+            text: resp.rep_order_color,
+        });
+    }
+
+    function rep_changing(bot, message, body){
+        bot.reply(message, {
+            text: resp.rep_changing,
+        });
+    }
+
+    function rep_return(bot, message, body){
+        bot.reply(message, {
+            text: resp.rep_return,
+        });
+    }
+
     function color_size(bot, message, body) {
         bot.reply(message, {
             text: resp.cs,
@@ -547,6 +602,34 @@ module.exports = function (controller) {
                     case "rep_hello":
                         rep_hello(bot, message, body);
                         break;
+                    case "rep_done":
+                        rep_done(bot, message, body);
+                        break;
+                    case "rep_inform":
+                        rep_inform(bot, message, body);
+                        break;
+                    case "rep_request":
+                        rep_request(bot, message, body);
+                        break;
+                    case "rep_feedback":
+                        rep_feedback(bot, message, body);
+                        break;
+                    case "rep_connect":
+                        rep_connect(bot, message, body);
+                        break;
+                    case "rep_order":
+                        rep_order(bot, message, body);
+                        break;
+                    case "rep_order_color":
+                        rep_order_color(bot, message, body);
+                        break;
+                    case "rep_changing":
+                        rep_changing(bot, message, body);
+                        break;
+                    case "rep_return":
+                        rep_return(bot, message, body);
+                        break;
+                    
                     case "color_size":
                         color_size(bot, message, body);
                         break;
